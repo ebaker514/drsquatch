@@ -14,39 +14,41 @@ module.exports = {
     after: browser => {
         squatchBrowser.end()
     },
-    // 'Social Media Links': browser => {
-    //     squatchBrowser
-    //         .clickMedia(social)
-    //         .pause(5000)
-    //         .api.windowHandles(results => {
-    //             squatchBrowser
-    //             console.log(results)
-    //             squatchBrowser
-    //                 .switchWindow(results.value[4])
-    //                 .verify.urlEquals('https://www.facebook.com/drsquatch')
-    //                 .closeWindow()
-    //                 .switchWindow(results.value[3])
-    //                 .verify.urlEquals('https://twitter.com/drsquatchsoapco')
-    //                 .closeWindow()
-    //                 .switchWindow(results.value[2])
-    //                 .verify.urlEquals('https://www.instagram.com/drsquatchsoapco/')
-    //                 .closeWindow()
-    //                 .switchWindow(results.value[1])
-    //                 .verify.urlEquals('https://www.youtube.com/channel/UCfb6EofrRqeK6ttHgxZRjcA')
-    //                 .closeWindow()
-    //                 .switchWindow(results.value[0])
-    //                 .api.dismissAlert()
-    //         })
-    // },
     'Home Page Links': browser => {
         squatchBrowser
+            .pause(2500)
         dropdowns.forEach(array => {
             squatchBrowser
-            .linkClick(array)
+                .linkClick(array)
         })
         squatchBrowser
-            // .linkClick(dropdowns[1])
+        // .linkClick(dropdowns[1])
     },
+    'Social Media Links': browser => {
+        squatchBrowser
+            .clickMedia(social)
+            .pause(5000)
+            .api.windowHandles(results => {
+                squatchBrowser
+                console.log(results)
+                squatchBrowser
+                    .switchWindow(results.value[4])
+                    .verify.urlEquals('https://www.facebook.com/drsquatch')
+                    .closeWindow()
+                    .switchWindow(results.value[3])
+                    .verify.urlEquals('https://twitter.com/drsquatchsoapco')
+                    .closeWindow()
+                    .switchWindow(results.value[2])
+                    .verify.urlEquals('https://www.instagram.com/drsquatchsoapco/')
+                    .closeWindow()
+                    .switchWindow(results.value[1])
+                    .verify.urlEquals('https://www.youtube.com/channel/UCfb6EofrRqeK6ttHgxZRjcA')
+                    .closeWindow()
+                    .switchWindow(results.value[0])
+                    .api.dismissAlert()
+                    .end()
+            })
+    }
     // 'Quiz': browser => {
     //     squatchBrowser
 
